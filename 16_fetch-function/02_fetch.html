@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Fetch Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, mollitia.
+        </h3>
+    </div>
+    <script>
+        // fetch("https://jsonplaceholder.typicode.com/todos").then((Response) => {
+        //     document.getElementById("demo").innerHTML = response.Text();
+        // }).catch((data) => { document.getElementById("demo").innerHTML});
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+        
+    </script>
+</body>
+
+</html>

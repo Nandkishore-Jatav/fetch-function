@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Fetch Document</title>
+</head>
+
+<body>
+    <form action="" id="myForm">
+        ID <input type="text" placeholder="ID" id="id">
+        Name <input type="text" placeholder="Name" id="name">
+        User-name <input type="text" placeholder="student" id="username">
+        Email <input type="text" placeholder="Years" id="email">
+        Address <input type="text" placeholder="age" id="address">
+        <input type="submit" placeholder="Submit" id="submits">
+    </form>
+    <script>
+        document.getElementById("submits").addEventListener('click', function() {
+            e.preventDefault();
+            var obj = {
+                id: document.getElementById("id").value,
+                name: document.getElementById("name").value,
+                username: document.getElementById("username").value,
+                email: document.getElementById("email").value,
+                address: document.getElementById("address").value,
+            };
+            fetch("https://jsonplaceholder.typicode.com/users",{
+                method: 'POST',
+                body : FormData(getElementBtyId("myForm")),
+                // body: JSON.stringify(obj),
+                    headers: {
+                        'Content-type': 'application/x-www-form-urlenaconed',
+                    },
+            })    
+                .then((response) => response.json())
+                .then((json) => console.log(json))
+                .catch((error) => console.log(error));
+        });        
+
+            
+
+    </script>
+</body>
+
+</html>
